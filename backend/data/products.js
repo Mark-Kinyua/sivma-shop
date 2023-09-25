@@ -1,6 +1,5 @@
 const products = [
     {
-        _id: '1',
         name: 'Airpods',
         image: '/images/1.jpg',
         description: 'fbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
@@ -12,7 +11,6 @@ const products = [
         numReviews: 12,
     },
     {
-        _id: '2',
         name: 'Headphones',
         image: '/images/2.jpg',
         description: 'fbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
@@ -24,7 +22,6 @@ const products = [
         numReviews: 18,
     },
     {
-        _id: '3',
         name: 'Super Max 3000',
         image: '/images/2.jpg',
         description: 'fbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
