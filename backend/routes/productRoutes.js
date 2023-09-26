@@ -1,5 +1,7 @@
 import express from "express";
 
+
+// Routes for Products
 const router = express.Router();
 
 
