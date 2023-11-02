@@ -9,6 +9,7 @@ import Loader from "../components/Loader";
 import { useCreateOrderMutation } from "../slices/ordersApiSlice";
 import { clearCartItems } from "../slices/cartSlice";
 
+
 const PlaceOrderScreen = () => {
 
     const dispatch = useDispatch();
@@ -19,9 +20,12 @@ const PlaceOrderScreen = () => {
 
     // Navigate back to page where there is missing data
     useEffect(() => {
+        // If missing shipping address, take a client back to that page
         if (!cart.shippingAddress.address) {
             navigate('/shipping');
-        } else if (!cart.paymentMethod) {
+        }
+        // If missing payment method, redirect user back to payment page 
+        else if (!cart.paymentMethod) {
             navigate('/payment');
         }
     }, [cart.paymentMethod, cart.shippingAddress.address, navigate])
@@ -29,22 +33,22 @@ const PlaceOrderScreen = () => {
     const placeOrderHandler = async () => {
         // Issue about (Objects are not valid as a React child ) 
         //TO-DO
-        // try {
-        //     const res = await createOrder({
-        //         orderItems: cart.cartItems,
-        //         shippingAddress: cart.shippingAddress,
-        //         paymentMethod: cart.paymentMethod,
-        //         itemsPrice: cart.itemsPrice,
-        //         shippingPrice: cart.shippingPrice,
-        //         taxPrice: cart.taxPrice,
-        //         totalPrice: cart.totalPrice,
-        //     }).unwrap();
-        //     dispatch(clearCartItems());
-        //     navigate(`/orders/${res._id}`);
-        // } catch (error) {
-        //     toast.error(error);
-        // }
-        
+        try {
+            const res = await createOrder({
+                orderItems: cart.cartItems,
+                shippingAddress: cart.shippingAddress,
+                paymentMethod: cart.paymentMethod,
+                itemsPrice: cart.itemsPrice,
+                shippingPrice: cart.shippingPrice,
+                taxPrice: cart.taxPrice,
+                totalPrice: cart.totalPrice,
+            }).unwrap();
+            dispatch(clearCartItems());
+            navigate(`/orders/${res._id}`);
+        } catch (error) {
+            toast.error(error);
+        }
+        //console.log('Placing Order....');
     };
 
 
