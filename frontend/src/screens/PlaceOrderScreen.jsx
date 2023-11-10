@@ -33,22 +33,22 @@ const PlaceOrderScreen = () => {
     const placeOrderHandler = async () => {
         // Issue about (Objects are not valid as a React child ) 
         //TO-DO
-        try {
-            const res = await createOrder({
-                orderItems: cart.cartItems,
-                shippingAddress: cart.shippingAddress,
-                paymentMethod: cart.paymentMethod,
-                itemsPrice: cart.itemsPrice,
-                shippingPrice: cart.shippingPrice,
-                taxPrice: cart.taxPrice,
-                totalPrice: cart.totalPrice,
-            }).unwrap();
-            dispatch(clearCartItems());
-            navigate(`/orders/${res._id}`);
-        } catch (error) {
-            toast.error(error);
-        }
-        //console.log('Placing Order....');
+        // try {
+        //     const res = await createOrder({
+        //         orderItems: cart.cartItems,
+        //         shippingAddress: cart.shippingAddress,
+        //         paymentMethod: cart.paymentMethod,
+        //         itemsPrice: cart.itemsPrice,
+        //         shippingPrice: cart.shippingPrice,
+        //         taxPrice: cart.taxPrice,
+        //         totalPrice: cart.totalPrice,
+        //     }).unwrap();
+        //     dispatch(clearCartItems());
+        //     navigate(`/orders/${res._id}`);
+        // } catch (error) {
+        //     toast.error(error);
+        // }
+        console.log('Placing Order....');
     };
 
 
